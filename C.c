@@ -1,33 +1,26 @@
-// Visual Studio¿¡¼­ ÀÛ¼ºµÈ ÄÚµåÀÔ´Ï´Ù.
+// Visual Studioì—ì„œ ìž‘ì„±ëœ ì½”ë“œìž…ë‹ˆë‹¤.
 
 #include <stdio.h>
 
 int main()
 {
-	// ¾ÆÁ÷ ÀÔ·Â¹ÞÀº ¼ýÀÚ¸¦ ÅëÇØ¼­ n * nÅ©±âÀÇ 2Â÷¿ø ¹è¿­À» ¸¸µé ¼ö ÀÖ´Â ¹æ¹ýÀ» ¸ô¶ó¼­ ¿ì¼± ÀÌ·¸°Ô Å©±â¸¦ Àâ¾Ò´Ù.
+	// ì•„ì§ ìž…ë ¥ë°›ì€ ìˆ«ìžë¥¼ í†µí•´ì„œ n * ní¬ê¸°ì˜ 2ì°¨ì› ë°°ì—´ì„ ë§Œë“¤ ìˆ˜ ìžˆëŠ” ë°©ë²•ì„ ëª°ë¼ì„œ ìš°ì„  ì´ë ‡ê²Œ í¬ê¸°ë¥¼ ìž¡ì•˜ë‹¤.
 	int snail_arr[50][50];
-	int i = 0, j = -1, k, n, loop, num = 1;
+	int i = 0, j = -1, k, n, loop, num = 1, inc = 1;
 
-	scanf_s("%d", &n); // n * nÀÇ nÀ» ÀÔ·Â¹Þ¾Æ¼­ ¹Ýº¹ È½¼ö¸¦ ÁöÁ¤ÇÏ±â À§ÇØ¼­ »ç¿ëÇÑ´Ù.
+	scanf_s("%d", &n); // n * nì˜ nì„ ìž…ë ¥ë°›ì•„ì„œ ë°˜ë³µ íšŸìˆ˜ë¥¼ ì§€ì •í•˜ê¸° ìœ„í•´ì„œ ì‚¬ìš©í•œë‹¤.
 	loop = n;
 
 	while (1)
 	{
 		for (k = 0; k < loop; k++)
 		{
-			if (loop % 2 != 0) // ´ÞÆØÀÌ ¹è¿­ÀÇ ±ÔÄ¢À» Ã£¾Æº¸´Ï ÀÌ·± ±ÔÄ¢À» È°¿ëÇÏ¸é µÈ´Ù.
-			{
-				j++;
-			}
-			else
-			{
-				j--;
-			}
+			j += inc;
 			snail_arr[i][j] = num;
 			num++;
 		}
 
-		loop--; // ¼¼·Î¸¦ µ· µÚ, °¡·Î¸¦ µ¼À¸·Î½á ÇÑ ¹ø µ· °ÍÀ¸·Î °£ÁÖÇÑ´Ù.
+		loop--; // ì„¸ë¡œë¥¼ ëˆ ë’¤, ê°€ë¡œë¥¼ ë”ìœ¼ë¡œì¨ í•œ ë²ˆ ëˆ ê²ƒìœ¼ë¡œ ê°„ì£¼í•œë‹¤.
 		if (loop == 0)
 		{
 			break;
@@ -35,17 +28,12 @@ int main()
 
 		for (k = 0; k < loop; k++)
 		{
-			if (loop % 2 != 0)
-			{
-				i--;
-			}
-			else
-			{
-				i++;
-			}
+			i += inc;
 			snail_arr[i][j] = num;
 			num++;
 		}
+
+		inc *= -1;
 	}
 
 	for (i = 0; i < n; i++)
